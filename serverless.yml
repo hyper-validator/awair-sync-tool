@@ -21,10 +21,7 @@ provider:
             - "s3:*"
             - "rds:*"
             - "cloudwatch:*"
-            - "sns:*"
-            - "ses:*"
             - "lambda:*"
-            - "dynamodb:*"
           Resource:
             - "*"
 
@@ -55,4 +52,6 @@ functions:
     timeout: 30
     events:
       # Invoke Lambda function every minute
-      - schedule: rate(15 minutes)
+      - schedule:
+          rate: rate(15 minutes)
+          enable: false
