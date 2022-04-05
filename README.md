@@ -1,3 +1,19 @@
+# Run on any machines
+
+### Create environment file `.env` and update awair token, pw username and password
+
+```
+awair_token=eyJ0xxxxxxxxxxxx
+pw_username=aaaa@example.com
+pw_password=alj1l2j4ljfaf
+```
+
+### Run on the background
+
+1. Ubuntu: `docker run -d --restart=always --env-file=.env kaka314/awair-sync-tool:linux`
+2. Mac M1: `docker run -d --restart=always --env-file=.env kaka314/awair-sync-tool:mac-m1`
+
+
 # Run locally
 
 1. Create file `.env` from `.env.sample` and update all fields
