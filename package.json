@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "serverless-disable-functions": "^1.0.0",
+    "serverless-python-requirements": "^5.4.0"
+  }
+}

@@ -1,0 +1,12 @@
+.venv
+.venv2
+__pycache__
+*~
+.env
+.client.py
+
+awair_sync_tool.egg-info/
+build/
+
+node_modules/
+.serverless/

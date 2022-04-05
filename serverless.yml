@@ -1,0 +1,58 @@
+service: awair-sync-tool
+
+frameworkVersion: '2 || 3'
+
+provider:
+  name: aws
+  runtime: python3.9
+  memorySize: 128 # optional, in MB, default is 1024
+  timeout: 10 # optional, in seconds, default is 6
+  environment:
+    STAGE: ${opt:stage,'dev'}
+    awair_token: ${env:awair_token}
+    pw_username: ${env:pw_username}
+    pw_password: ${env:pw_password}
+
+  iam:
+    role:
+      statements:
+        - Effect: "Allow"
+          Action:
+            - "s3:*"
+            - "rds:*"
+            - "cloudwatch:*"
+            - "sns:*"
+            - "ses:*"
+            - "lambda:*"
+            - "dynamodb:*"
+          Resource:
+            - "*"
+
+plugins:
+  - serverless-disable-functions
+  - serverless-python-requirements
+useDotenv: true
+
+custom:
+  pythonRequirements:
+    # supports up to python 3.8 since lambci/lambda:build-python3.9 is not available yet
+    dockerizePip: true
+
+# you can add packaging information here
+package:
+  patterns:
+    - '!build/**'
+    - '!.git/**'
+    - '!node_modules/**'
+    - '!package*.json'
+    - '!*.egg-info'
+
+functions:
+  syncAwairToPlanetwatch:
+    handler: handlers.awair_sync.handle
+    description: Sync air data from awair to planetwatch
+    memorySize: 128
+    timeout: 30
+    events:
+      # Invoke Lambda function every minute
+      - schedule: rate(15 minutes)
