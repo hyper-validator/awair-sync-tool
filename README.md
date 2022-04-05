@@ -41,3 +41,11 @@ Deploy to AWS using `serverless deploy`
 ```
 
 To start the feed using docker compose: `docker-compose up`, this will load the .env automatically.
+
+
+# This is Inspired
+
+This project is inspired by following projects,
+
+1. https://github.com/Sheherezadhe/awair-uploader
+2. https://github.com/wwadge/awair-bridge
