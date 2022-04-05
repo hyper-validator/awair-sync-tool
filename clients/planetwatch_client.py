@@ -16,9 +16,7 @@ class PlanetwatchClient:
     REALM_NAME      = "Planetwatch"
 
     def __init__(self, username, password):
-        self._scraper = cloudscraper.create_scraper( browser={
-            'custom': 'ScraperBot/1.0',
-        })
+        self._scraper = cloudscraper.create_scraper(browser="chrome")
         self._auth_url = (
             f"{self.PLANET_AUTH_URL}realms/Planetwatch/protocol/openid-connect/auth"
             f"?client_id=external-login&response_type=code&redirect_uri="
