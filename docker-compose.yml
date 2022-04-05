@@ -1,0 +1,7 @@
+version: '3'
+services:
+  awair-sync:
+    image: 'awair-sync-tool'
+    env_file:
+     - ./.env
+    environment: []
