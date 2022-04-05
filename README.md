@@ -1,6 +1,6 @@
 # Run locally
 
-1. Update file `.env`
+1. Create file `.env` from `.env.sample` and update all fields
 
 2. Run following commands
 
