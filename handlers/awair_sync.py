@@ -27,8 +27,8 @@ if __name__ == "__main__":
     while True:
         try:
             handle(None, None)
-        except Except:
+        except Exception:
             LOG.exception(f"Unknown exception")
 
-        LOG.info(f"Start next sync in {interval/60} minutes")
+        LOG.info(f"Start next sync in {interval/60:.0f} minutes")
         time.sleep(interval)

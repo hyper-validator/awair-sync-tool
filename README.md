@@ -16,7 +16,7 @@ pw_password=alj1l2j4ljfaf
 
 # Run locally
 
-1. Create file `.env` from `.env.sample` and update all fields
+1. Create file `.env` from `.env.sample`, update all fields and run command `export $(grep -v '^#' .env | xargs)` to load these fields to environment
 
 2. Run following commands
 
